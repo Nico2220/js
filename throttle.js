@@ -1,14 +1,13 @@
 function throttle(callback, delay) {
-  let lastCall = 0;
+  let lastCalledTime = 0;
   let timerId;
   function throttleFunction(...args) {
-    // const currenTime = Date.now();
-    // const timeSinceLastCall = currenTime - lastCalledTime;
-    // const delayRemaning = delay - timeSinceLastCall;
+    const currenTime = Date.now();
+    const timeSinceLastCall = currenTime - lastCalledTime;
+    const delayRemaning = delay - timeSinceLastCall;
 
     // delay completed, call the callback
-    if (now - lastCall >= delay) {
-      const now = new Date().getTime();
+    if (delayRemaning <= 0) {
       callback.apply(this, args);
       lastCalledTime = currenTime;
     } else {

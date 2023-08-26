@@ -1,11 +1,15 @@
-function test() {
-  try {
-    throw `you throw it ${5} time`;
-    console.log("hello");
-  } catch (err) {
-    console.log("we catch it , dont worry");
-    console.log(`this is the errorMessage:`, JSON.stringify(err));
-  }
+function sum(a, b, c) {
+  return a + b + c;
 }
+function currideSum(func) {
+  return function (a) {
+    return function (b) {
+      return function (c) {
+        return func(a, b, c);
+      };
+    };
+  };
+}
+const r = currideSum(sum);
 
-test();
+console.log(r(1)(2)(3));

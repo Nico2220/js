@@ -8,7 +8,7 @@ function promisify(callback) {
           resolve(value);
         }
       }
-      callback(...args, handleErrorAndValue);
+      callback.call(this, ...args, handleErrorAndValue);
     });
   };
 }

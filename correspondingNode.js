@@ -11,8 +11,8 @@ function correspondingNode(tree1, tree2, node1) {
 
     console.log("currNode1=", currNode1);
     console.log("currNode2=", currNode2);
-    stack1.push(currNode1.children);
-    stack2.push(currNode2.children);
+    stack1.push(...currNode1.children);
+    stack2.push(...currNode2.children);
   }
 }
 
@@ -38,4 +38,4 @@ dom2.innerHTML = `
   </article>
  `;
 
-correspondingNode(dom1, dom2, dom1);
+cconsole.log(orrespondingNode(dom1, dom2, dom1));

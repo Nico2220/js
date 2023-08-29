@@ -1,9 +1,11 @@
-// promise is an Object
+const arr1 = ["nico", "dave", "bouls", "wud"];
+const arr2 = ["wud", "nico", 6];
 
-// state -> pending, fullfield, rejected
+const newArray = arr2.reduce(function (acc, curr, array) {
+  console.log(acc, curr);
+  return curr;
+});
 
-async function tester() {
-  return 3;
-}
+console.log("newArray=", newArray);
 
-console.log(t().then(console.log));
+// array.splice(start[, deleteCount[, item1[, item2[, ...]]]])

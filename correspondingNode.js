@@ -1,3 +1,4 @@
+// solution 1
 function correspondingNode(tree1, tree2, node1) {
   const stack1 = [tree1];
   const stack2 = [tree2];
@@ -9,11 +10,27 @@ function correspondingNode(tree1, tree2, node1) {
       return currNode2;
     }
 
-    console.log("currNode1=", currNode1);
-    console.log("currNode2=", currNode2);
     stack1.push(...currNode1.children);
     stack2.push(...currNode2.children);
   }
+}
+
+// solution 2
+function correspondingNodeV2(tree1, tree2, node1) {
+  const path = [];
+  let currentNode = node1;
+  while (currentNode !== tree1) {
+    const parent = currentNode.parentNode;
+    const currenIndex = Array.from(parent.children).indexOf(currentNode);
+    path.push(currenIndex);
+    currentNode = parent;
+  }
+
+  const r = path.reduceRight((foundNode, childIndex) => {
+    return foundNode.children[childIndex];
+  }, tree2);
+
+  console.log("r=", r);
 }
 
 const dom1 = document.createElement("div");
@@ -38,4 +55,4 @@ dom2.innerHTML = `
   </article>
  `;
 
-cconsole.log(orrespondingNode(dom1, dom2, dom1));
+console.log(correspondingNodeV2(dom1, dom2, dom1.querySelector("h2")));

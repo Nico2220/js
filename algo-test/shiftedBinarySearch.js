@@ -14,7 +14,7 @@ function shiftedBinarySeach(array, target) {
         leftIdx = middleIdx + 1;
       }
     } else {
-      if (array[middleIdx] > target && target < array[rightIdx]) {
+      if (target > array[middleIdx] && target < array[rightIdx]) {
         leftIdx = middleIdx + 1;
       } else {
         rightIdx = middleIdx - 1;

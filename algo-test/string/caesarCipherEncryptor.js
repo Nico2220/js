@@ -5,11 +5,10 @@ function caesarCipherEncryptor(string, key) {
     const letterIndex = alphabet.indexOf(letter);
     const newKey = letterIndex + (key % 26);
 
-    if (newKey < 26) {
+    if (newKey < alphabet.length) {
       newWord.push(alphabet[newKey]);
     } else {
-      console.log(alphabet[newKey]);
-      newWord.push(alphabet[newKey % 26]);
+      newWord.push(alphabet[newKey % alphabet.length]);
     }
   }
   return newWord.join("");

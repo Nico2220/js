@@ -14,10 +14,7 @@ function longuestSubStringWithoudDuplicate(string) {
 
     lastSeen[char] = i;
   }
-
-  console.log(lastSeen);
-  console.log(longuestSubString);
-  return longuestSubString;
+  return string.slice(longuestSubString[0], longuestSubString[1]);
 }
 
 console.log(longuestSubStringWithoudDuplicate("clementisacap"));
